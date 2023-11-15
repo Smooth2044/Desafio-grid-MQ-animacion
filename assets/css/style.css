@@ -1,0 +1,128 @@
+@media (min-width: 601px) {
+    body{
+        grid-template-columns: 20% auto auto auto;
+        grid-template-rows: 15% 65% 20%;
+        grid-template-areas: 
+        "nav header header header"
+        "nav main main main"
+        "nav footer footer footer";
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+header {
+    background-color: rgb(101, 59, 130);
+    color: goldenrod;
+    text-align: center;
+    padding: 10px;
+    grid-area: header;
+}
+
+nav {
+    background-color: peru;
+    color: aliceblue;
+    padding: 10px;
+    grid-area: nav;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    grid-area: main;
+}
+
+.producto {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    .imagen{
+        width: 100%;
+        filter: grayscale(100%);
+        transition: filter 0.5s ease-in-out;
+    }
+    :hover.imagen {
+        filter:grayscale(0%);
+    }
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.producto h2 {
+    margin-top: 10px;
+}
+
+.producto button {
+    grid-area: button;
+    background-color: gold;
+    color: mediumblue;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.producto button:hover {
+    background-color: darkgoldenrod;
+}
+
+footer {
+    background-color: rgb(101, 59, 130);
+    color: goldenrod;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    grid-area: footer;
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 600px) {
+    body {
+        margin: 0;
+        font-family: sans-serif;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 10% 12% 68% 10%;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+        height: 100vh;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    footer p {
+        margin-bottom: 0;
+    }
+}
+
+
